@@ -76,19 +76,21 @@ Object 类型，参数如下：
 数据格式如下：
 ```json
 {
-  "code": "40003",
-  "msg": "Insufficient Conditions",
-  "subCode": "isv.invalid-auth-relations",
-  "subMsg": "无效的授权关系"
+  "code": "40001",
+  "msg": "Missing Required Arguments",
+  "subCode": "isv.missing-default-signature-type",
+  "subMsg": "应用未设置默认签名类型"
 },
 ```
 错误码穷举如下：
-| 系统级错误码（code） | 系统级错误描述（msg） | 业务级错误码（subCode） | 业务级错误描述（subMsg） | 解决方案 |
-| --- | --- | --- | --- | --- |
-| 20000 | Service Currently Unavailable | aop.unknow-error | 系统繁忙。 | 稍后再试。 |
-| 40001 | Missing Required Arguments  | isv.missing-encrypt-key | 缺少加密配置 | 按照简介说明配置 **接口内容加密方式** |
-| 40001 | Missing Required Arguments | isv.missing-default-signature-type" | 应用未设置默认签名类型 | 重新保存下开发者的密钥，或者设置下小程序的应用网关地址 |
-| 40002 | Invalid Arguments  | isv.invalid-encrypt | 加密异常。 | 按文档重新设置AES密钥。 |
+
+| 错误码(code) | 错误描述(subMsg) | 解决方案 |
+| --- | --- | --- |
+| 20000 | 系统繁忙。 | 稍后再试。 |
+| 40001 | 缺少加密配置 | 按照简介说明配置 **接口内容加密方式** |
+|  | 应用未设置默认签名类型 | 重新保存下开发者的密钥，或者设置下小程序的接口加签方式 |
+| 40002 | 加密异常。 | 按文档重新设置AES密钥。 |
+
 
 ## 开发者服务端解密 
 ### 解密成功
@@ -105,17 +107,17 @@ Object 类型，参数如下：
 数据格式如下： 
 ```json
 {
-    "code": "40003",
-    "msg": "Insufficient Conditions",
-    "subCode": "isv.invalid-auth-relations",
-    "subMsg": "无效的授权关系"
+  "code": "40001",
+  "msg": "Missing Required Arguments",
+  "subCode": "isv.missing-default-signature-type",
+  "subMsg": "应用未设置默认签名类型"
 },
 ```
 错误码穷举如下：
 
-| 系统级错误码（code） | 系统级错误描述（msg） | 业务级错误码（subCode） | 业务级错误描述（subMsg） | 解决方案 |
-| --- | --- | --- | --- | --- |
-| 40006 | Insufficient Permissions | isv.insufficient-isv-permissions | ISV权限不足，建议在开发者中心检查签约是否已经生效。 | 小程序产品绑定。登录支付宝 [开放平台控制台](https://open.alipay.com/dev/workspace) -> 选择需要配置的小程序，点击进入详情页  -> 产品绑定 -> 找到 **运动数据**，点击 **用户信息申请**，申请 my.queryStepDailyCount 权限，申请规则可查看 [用户信息申请及使用基础规则](https://opendocs.alipay.com/common/02kkuu) 。 |
+| 错误码(code) | 错误描述(subMsg) | 解决方案 |
+| ----- | --- | --- |
+| 40006 | ISV权限不足，建议在开发者中心检查签约是否已经生效。 | 小程序产品绑定。登录支付宝 [开放平台控制台](https://open.alipay.com/dev/workspace) -> 选择需要配置的小程序，点击进入详情页  -> 产品绑定 -> 找到 **运动数据**，点击 **用户信息申请**，申请 my.queryStepDailyCount 权限，申请规则可查看 [用户信息申请及使用基础规则](https://opendocs.alipay.com/common/02kkuu) 。 |
 
 ## Fail 回调返回值
 | 错误码 | 说明 | 解决方案 |
