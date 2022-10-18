@@ -23,7 +23,7 @@ const recorderStopCallback = res => {
 recorderManager.onStop(recorderStopCallback);
 setTimeout(() => {
   recorderManager.offStop(recorderStopCallback);
-}, 5000);
+}, 10000);
 ```
 
 ## 入参
